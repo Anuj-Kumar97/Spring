@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<bean id="chatroom1" class="com.spring.FirstSpringDemo.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="IBM"/>
+		<property name="users">
+		<set>
+		<value>Anuj</value>
+		<value>Akshay</value>
+		<value>Yash</value>
+		<value>Ravi</value>
+		</set>
+		</property>
+		<property name="messages">
+		<list>
+		<value>Hi</value>
+		<value>Hey</value>
+		<value>Seeyou</value>
+		<value>Goodbye</value>
+		</list>
+		</property>
+	</bean>
+	<bean id="chatroom2" class="com.spring.FirstSpringDemo.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="TCS"/>
+		<property name="users">
+		<set>
+		<value>Ankit</value>
+		<value>Anand</value>
+		<value>Rahul</value>
+		<value>Vivek</value>
+		</set>
+		</property>
+		<property name="messages">
+		<list>
+		<value>Hi</value>
+		<value>Hey</value>
+		<value>Seeyou</value>
+		<value>Goodbye</value>
+		</list>
+		</property>
+		
+	</bean>
+	<bean id="chatroom3" class="com.spring.FirstSpringDemo.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="Infosys"/>
+		<property name="users">
+		<set>
+		<value>Ajay</value>
+		<value>Amisha</value>
+		<value>Rittik</value>
+		<value>Hussain</value>
+		</set>
+		</property>
+		<property name="messages">
+		<list>
+		<value>Hi</value>
+		<value>Hey</value>
+		<value>Seeyou</value>
+		<value>Goodbye</value>
+		</list>
+		</property>
+	</bean>
+</beans>
