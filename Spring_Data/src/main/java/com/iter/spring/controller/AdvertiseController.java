@@ -31,12 +31,6 @@ public class AdvertiseController {
 	public String updateAdvertise(@RequestBody Advertise advertise,@RequestHeader String key) {
 		return advertiseService.updateAd(key,advertise);
 	}
-	@RequestMapping(value="/getuserad",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Advertise> updateAdvertise(@RequestHeader String key) {
-		 List<Advertise> adlist=new ArrayList<Advertise>();
-		 adlist.addAll(advertiseService.getUserAdList(key));
-		 return adlist;
-	}
 	@RequestMapping(value="/getcategorylist",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<String> getCategoryOfAllAdvertise() {
 		 return advertiseService.getCategoryList();
