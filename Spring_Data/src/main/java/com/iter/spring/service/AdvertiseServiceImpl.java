@@ -13,18 +13,11 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 
 	@Override
 	public List<Advertise> getUserAdList(String key) {
-		UserEntity userEntity=this.getBySessionId(key);
-		if(userEntity==null){
-			return null;
-		}
-		else{
-			return AdvertiseUtils.convertAdEntityListToAdJson(userEntity.getAdEntity());
-		}
+		return null;
 	}
 
 	@Override
 	public List<Advertise> getAllAdvertise() {
-		
 		return AdvertiseUtils.convertAdEntityListToAdJson(advertiseRepository.findAll());
 	}
 
