@@ -13,6 +13,7 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 
 	@Override
 	public List<Advertise> getUserAdList(String key) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
