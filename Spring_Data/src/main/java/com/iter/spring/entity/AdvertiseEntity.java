@@ -1,5 +1,7 @@
 package com.iter.spring.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,8 +39,11 @@ public class AdvertiseEntity {
 	@ManyToOne
 	private UserEntity userEntity;
 	
+	@Column(name="date_time")
+	private LocalDateTime ldt;
+	
 	public AdvertiseEntity(long id, String name, String category, String title, String description, String status,
-			String postID, UserEntity userEntity) {
+			String postID, LocalDateTime ldt) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,14 +52,16 @@ public class AdvertiseEntity {
 		this.description = description;
 		this.status = status;
 		this.postID = postID;
-		this.userEntity = userEntity;
+		this.ldt=ldt;
+		
 	}
 
-	public AdvertiseEntity(String category, String title, String description) {
+	public AdvertiseEntity(String category, String title, String description, LocalDateTime ldt) {
 		super();
 		this.category = category;
 		this.title = title;
 		this.description = description;
+		this.ldt=ldt;
 	}
 	
 	public AdvertiseEntity() {}
@@ -123,10 +130,21 @@ public class AdvertiseEntity {
 		this.userEntity = userEntity;
 	}
 
+	public LocalDateTime getLdt() {
+		return ldt;
+	}
+
+	public void setLdt(LocalDateTime ldt) {
+		this.ldt = ldt;
+	}
+
 	@Override
 	public String toString() {
-		return "Advertise [id=" + id + ", category=" + category + ", title=" + title + ", description=" + description
-				+ "]";
+		return "AdvertiseEntity [id=" + id + ", category=" + category + ", title=" + title + ", description="
+				+ description + ", name=" + name + ", status=" + status + ", postID=" + postID + ", userEntity="
+				+ userEntity + ", ldt=" + ldt + "]";
 	}
+
+	
 
 }
