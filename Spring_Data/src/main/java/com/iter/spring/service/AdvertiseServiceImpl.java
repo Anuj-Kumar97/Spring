@@ -8,12 +8,30 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 
 	@Override
 	public Advertise save(Advertise advertise, String key) {
-		return null;
+		
+		UserEntity userEntity=this.getBySessionId(key);
+		if(userEntity!=null){	
+			AdvertiseEntity adv=AdvertiseUtils.convertAdJsonToAdEntity(advertise);
+			adv.setLdt(LocalDateTime.now());
+			adv.setUserEntity(userEntity);
+			advertiseRepository.save(adv);
+			return AdvertiseUtils.convertAdEntityToAdJson(adv);
+		}
+		else{
+			return null;
+		}
 	}
 
 	@Override
 	public List<Advertise> getUserAdList(String key) {
-		return null;
+		
+		UserEntity userEntity=this.getBySessionId(key);
+		if(userEntity!=null){
+			return AdvertiseUtils.convertAdEntityListToAdJson(userEntity.getAdEntity());
+		}
+		else{
+			return null;
+		}
 	}
 
 	@Override
@@ -69,6 +87,21 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 		return null;
 	}
 	
+	public  UserEntity getBySessionId(String key)
+	{
+		if(key==null||key.equals(""))
+		{
+			return null;
+		}
+		UserEntity userentity=userRepository.findBySessionId(key).get(0);
+		if(userentity==null)
+		{
+			return null;
+		}
+		else
+		{
+			return userentity;
+		}
+	}
 	
-
 }
