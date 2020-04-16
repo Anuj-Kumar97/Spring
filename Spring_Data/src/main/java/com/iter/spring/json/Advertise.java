@@ -1,5 +1,7 @@
 package com.iter.spring.json;
 
+import java.time.LocalDateTime;
+
 public class Advertise {
 	
 	private long id;
@@ -9,11 +11,12 @@ public class Advertise {
 	private String description;
 	private String status;
 	private String postID;
+	private LocalDateTime ldt;
 	
 	private User user;
 
 	public Advertise(long id, String name, String category, String title, String description, String status,
-			String postID, User user) {
+			String postID, LocalDateTime ldt) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,10 +25,10 @@ public class Advertise {
 		this.description = description;
 		this.status = status;
 		this.postID = postID;
-		this.user = user;
+		this.ldt=ldt;
 	}
 
-	public Advertise(String category, String title, String description,String status, String postID, String name, long id) {
+	public Advertise(String category, String title, String description,String status, String postID, String name, long id, LocalDateTime ldt) {
 		super();
 		this.id=id;
 		this.name=name;
@@ -34,15 +37,17 @@ public class Advertise {
 		this.title = title;
 		this.status=status;
 		this.description = description;
+		this.ldt=ldt;
 	}
 	
-	public Advertise(long id, String name, String category, String title, String description) {
+	public Advertise(long id, String name, String category, String title, String description, LocalDateTime ldt) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.title = title;
 		this.description = description;
+		this.ldt=ldt;
 	}
 
 	public Advertise() {}
@@ -102,7 +107,15 @@ public class Advertise {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public LocalDateTime getLdt() {
+		return ldt;
+	}
 
+	public void setLdt(LocalDateTime ldt) {
+		this.ldt = ldt;
+	}
+	
 	public String getPostID() {
 		return postID;
 	}
@@ -113,8 +126,9 @@ public class Advertise {
 
 	@Override
 	public String toString() {
-		return "Advertise [id=" + id + ", category=" + category + ", title=" + title + ", description=" + description
-				+ "]";
+		return "Advertise [id=" + id + ", name=" + name + ", category=" + category + ", title=" + title
+				+ ", description=" + description + ", status=" + status + ", postID=" + postID + ", ldt=" + ldt
+				+ ", user=" + user + "]";
 	}
 
 }
