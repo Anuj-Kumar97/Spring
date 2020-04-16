@@ -1,6 +1,7 @@
 package com.iter.spring.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -29,6 +30,12 @@ public class AdvertiseController {
 	@RequestMapping(value="/updatead",method=RequestMethod.PUT, produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
 	public String updateAdvertise(@RequestBody Advertise advertise,@RequestHeader String key) {
 		return advertiseService.updateAd(key,advertise);
+	}
+	@RequestMapping(value="/getuserad",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertise> updateAdvertise(@RequestHeader String key) {
+		 List<Advertise> adlist=new ArrayList<Advertise>();
+		 adlist.addAll(advertiseService.getUserAdList(key));
+		 return adlist;
 	}
 	@RequestMapping(value="/getcategorylist",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<String> getCategoryOfAllAdvertise() {
